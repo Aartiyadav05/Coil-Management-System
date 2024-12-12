@@ -1,0 +1,61 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coil Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/tata_steel_logo.png') }}" alt="Tata Steel Logo" class="logo">
+        <h1>Enter Coil Details</h1>
+        <form method="POST" action="{{ url_for('dashboard') }}">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tdc">TDC:</label>
+                    <input type="text" name="tdc" required>
+                </div>
+                <div class="form-group">
+                    <label for="coil_number">Coil Number:</label>
+                    <input type="text" name="coil_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="thickness">Thickness:</label>
+                    <input type="number" step="any" name="thickness" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="width">Width:</label>
+                    <input type="number" step="any" name="width" required>
+                </div>
+                <div class="form-group">
+                    <label for="quality_code">Quality Code:</label>
+                    <input type="text" name="quality_code" maxlength="6" required>
+                </div>
+                <div class="form-group">
+                    <label for="rm_batch">RM Batch:</label>
+                    <input type="text" name="rm_batch" required>
+                </div>
+                 
+            </div>
+               <div class="button">
+                 <button type="submit">Submit</button>
+                 <button onclick="location.href='{{ url_for('options') }}'">back to options</button>
+               </div>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+         {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+         {% endwith %}
+        </form>
+    </div>
+    
+</body>
+</html> 

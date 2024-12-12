@@ -1,0 +1,21 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <link rel="stylesheet" href="/static/options.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='images/tata_steel_logo.png') }}" alt="Tata Steel Logo" class="logo">
+        <h1>Options</h1>
+        <button onclick="window.location.href='/dashboard'">Coil Report</button>
+        <button onclick="window.location.href='/tdc'">TDC Reports</button>
+        <button onclick="window.location.href='/logout'" class="logout">Logout</button>
+    </div>
+</body>
+</html>
+

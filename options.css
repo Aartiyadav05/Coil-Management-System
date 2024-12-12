@@ -1,0 +1,66 @@
+ /* Overall body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #7dbdc9, #3d47ba); /* Linear gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container styles */
+.container {
+    width:100%;
+    max-width: 450px; /* Narrower for a clean column look */
+    background: rgb(254, 253, 253);
+    padding: 30px;
+    height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center align content */
+}
+ 
+.logo {
+    width: 200px;
+    margin-bottom: 0px;
+    height: 200px;
+}
+
+/* Heading styles */
+h1 {
+    margin-top: 50px;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+button{
+    margin-right: 10px;
+    margin-bottom: 10px;
+  
+}
+ 
+/* Button styles */
+button {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+    font-size: 1.4em;
+    color: white;
+    background-color: #0b49d9;
+    border: none;
+    gap: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #3317e8;
+    transform: scale(1.05);/*Slightly enlarge  on hover */
+}
+
+
+ 

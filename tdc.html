@@ -1,0 +1,65 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select TDC Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tdc.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/tata_steel_logo.png') }}" alt="Tata Steel Logo" class="logo">
+      <h1>Select TDC Report</h1>
+      <form action="{{ url_for('show_report') }}" method="GET">
+        <label for="tdc">Choose a TDC:</label>
+        <select name="tdc" id="tdc" required>
+            <option value="" disabled selected>Select a TDC</option>
+            {% for tdc in unique_tdcs %}
+                <option value="{{ tdc }}">{{ tdc }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Show Report</button>
+        <button onclick="location.href='{{ url_for('options') }}'">back to options</button>
+    </form>
+    
+     
+    
+       {% if data %}
+       <h2>Report for TDC: {{ selected_tdc }}</h2>
+       <table border="1">
+           <thead>
+               <tr>
+                  <th>TDC</th>
+                  <th>Coil Number</th>
+                  <th>Thickness</th>
+                  <th>Width</th>
+                  <th>Quality Code</th>
+                  <th>RM Batch</th>
+                  <th>Username</th>
+                  <th>Timestamp</th>
+              </tr>
+           </thead>
+           <tbody>
+              {% for row in data %}
+              <tr>
+                  <td>{{ row[0] }}</td>
+                  <td>{{ row[1] }}</td>
+                  <td>{{ row[2] }}</td>
+                  <td>{{ row[3] }}</td>
+                  <td>{{ row[4] }}</td>
+                  <td>{{ row[5] }}</td>
+                  <td>{{ row[6] }}</td>
+                  <td>{{ row[7] }}</td>
+               </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      {% elif selected_tdc %}
+      <p>No data found for the selected TDC.</p>
+      {% endif %}
+    </div>
+</body>
+</html>
+ 
